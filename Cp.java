@@ -3,19 +3,12 @@ package cp;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.io.IOException;
 
 public class Cp {
-    
-    
     
     static int palabra=0;
     static int nEntero=0;
     static int compuesto=0;
-    static int car=0;
     
     static void tp(char[] c){
         
@@ -25,7 +18,6 @@ public class Cp {
         int signo=0;
         
         for (char ch :c) {
-            car++;
             if(Character.isLetter(ch))
             {letra++;
             }else if(Character.isSpaceChar(ch)){
@@ -55,28 +47,14 @@ public class Cp {
     
   
     public static void main(String[] args) {
-        String texto=" ";
-        try {
-            
-            Path filePath = Paths.get("C:\\Users\\juanj\\Documents\\texto.txt");
-
-           
-            texto = Files.readString(filePath);
-
-           
-            //System.out.println(content);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-      // Scanner entrada=new Scanner(System.in);
-       //String texto=entrada.nextLine();
-       String[] plabras=texto.split(" ");
+       Scanner entrada=new Scanner(System.in);
+       String texto=entrada.nextLine();
+       String[] palabras=texto.split(" ");
        
-        for (String s:plabras) {
+        for (String s:palabras) {
             tp(s.toCharArray());
         }
-       System.out .println("\nTotal de caracteres (con espacios): "+(car+plabras.length-1)+"\nTotal de caracteres (sin espacios): "+car+"\nTotal de lexemas: "+(palabra+nEntero+compuesto)+"\nTotal de palabras:"+palabra+ "\nTotal de numeros: "+nEntero+"\nTotal de combinadas: "+compuesto);
+       System.out .println("\nNo. Total:"+(palabra+nEntero+compuesto)+" Palabras:"+palabra+" No. Enteros:"+nEntero+" Palabras compuestas:"+compuesto);
        
     }
     
